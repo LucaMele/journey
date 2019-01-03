@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">journey</string>
+    <string name="route_search_button_text">Routenplaner</string>
 </resources>
