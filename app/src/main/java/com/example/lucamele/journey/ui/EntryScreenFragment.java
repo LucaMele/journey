@@ -30,9 +30,8 @@ import android.widget.Button;
 
 import com.example.lucamele.journey.R;
 import com.example.lucamele.journey.model.FragmentChangeListener;
-import com.example.lucamele.journey.model.ReplaceableFragment;
 
-public class EntryScreenFragment extends Fragment implements View.OnClickListener, FragmentChangeListener, ReplaceableFragment {
+public class EntryScreenFragment extends Fragment implements View.OnClickListener, FragmentChangeListener {
     public static final String TAG = "EntryScreenViewModel";
 
     @Nullable
@@ -48,8 +47,8 @@ public class EntryScreenFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         System.out.println("onClick");
-        ReplaceableFragment routeSearchFragment = RouteSearchFragment.getNewInstance();
-        this.replaceFragment((Fragment) routeSearchFragment);
+        Fragment routeSearchFragment = RouteSearchFragment.getNewInstance();
+        this.replaceFragment(routeSearchFragment);
     }
 
     @Override
@@ -62,7 +61,7 @@ public class EntryScreenFragment extends Fragment implements View.OnClickListene
     }
 
     public static Fragment getNewInstance() {
-        ReplaceableFragment fragment = new EntryScreenFragment();
+        Fragment fragment = new EntryScreenFragment();
         return (Fragment) fragment;
     }
 }

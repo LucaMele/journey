@@ -14,15 +14,77 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:id="@+id/sidebar"
-        android:layout_weight="1"
+        android:id="@+id/icon_route_planer"
+        android:layout_weight="0.4"
         tools:ignore="Suspicious0dp">
 
         <ImageView
-            android:layout_width="154dp"
-            android:layout_height="129dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:id="@+id/icon_route_planer_logo"
             android:layout_gravity="center"
-            android:src="@drawable/ic_logo" />
+            android:src="@drawable/ic_logo"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/icon_route_planer_logo"
+            android:layout_gravity="center"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_toEndOf="@+id/icon_route_planer_logo"
+            android:text="@string/route_search_button_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_weight="1"
+        tools:ignore="Suspicious0dp">
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/icon_route_planer_text_from">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_text_from" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/icon_route_planer_text_to"
+            android:layout_below="@id/icon_route_planer_text_from"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_text_to" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/icon_route_planer_text_via"
+            android:layout_below="@id/icon_route_planer_text_to">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_text_via" />
+        </android.support.design.widget.TextInputLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

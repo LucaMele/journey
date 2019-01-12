@@ -18,7 +18,7 @@
     <!-- The main content view where fragments are loaded -->
     <FrameLayout
         android:id="@+id/fragment_container"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingTop="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

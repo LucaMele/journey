@@ -23,9 +23,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lucamele.journey.R;
-import com.example.lucamele.journey.model.ReplaceableFragment;
 
-public class RouteSearchFragment extends Fragment implements ReplaceableFragment {
+public class RouteSearchFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,8 +33,8 @@ public class RouteSearchFragment extends Fragment implements ReplaceableFragment
         return v;
     }
 
-    public static ReplaceableFragment getNewInstance() {
-        ReplaceableFragment fragment = new RouteSearchFragment();
+    public static Fragment getNewInstance() {
+        Fragment fragment = new RouteSearchFragment();
         return fragment;
     }
 }
