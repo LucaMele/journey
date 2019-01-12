@@ -55,7 +55,7 @@ public class EntryScreenFragment extends Fragment implements View.OnClickListene
     @Override
     public void replaceFragment(Fragment fragment) {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_container, fragment);
+        ft.replace(R.id.drawer_layout, fragment);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         ft.addToBackStack(null);
         ft.commit();
