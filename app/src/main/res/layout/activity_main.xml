@@ -8,10 +8,20 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+
+    <!-- The ActionBar displayed at the top -->
     <include
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <!-- The main content view where fragments are loaded -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

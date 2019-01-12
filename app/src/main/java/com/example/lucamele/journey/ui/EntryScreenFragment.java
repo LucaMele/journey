@@ -32,7 +32,7 @@ import com.example.lucamele.journey.R;
 import com.example.lucamele.journey.model.FragmentChangeListener;
 import com.example.lucamele.journey.model.ReplaceableFragment;
 
-public class EntryScreenFragment extends Fragment implements View.OnClickListener, FragmentChangeListener {
+public class EntryScreenFragment extends Fragment implements View.OnClickListener, FragmentChangeListener, ReplaceableFragment {
     public static final String TAG = "EntryScreenViewModel";
 
     @Nullable
@@ -55,9 +55,14 @@ public class EntryScreenFragment extends Fragment implements View.OnClickListene
     @Override
     public void replaceFragment(Fragment fragment) {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.drawer_layout, fragment);
+        ft.replace(R.id.fragment_container, fragment);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         ft.addToBackStack(null);
         ft.commit();
+    }
+
+    public static Fragment getNewInstance() {
+        ReplaceableFragment fragment = new EntryScreenFragment();
+        return (Fragment) fragment;
     }
 }
