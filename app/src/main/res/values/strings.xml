@@ -2,6 +2,8 @@
     <string name="route_search_button_text">Routenplaner</string>
     <string name="home">Journey Home</string>
     <string name="hint_text_from">Von</string>
+    <string name="connection_from">Start um</string>
+    <string name="connection_to">Ankunft um</string>
     <string name="search_button_text">Suche</string>
     <string name="validation_text_search">Bitte füllen Sie Von / Bis aus</string>
     <string name="validation_text_search_no_locations">Keine Routen gefunden</string>

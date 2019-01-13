@@ -16,6 +16,7 @@
 
 package com.example.lucamele.journey.ui;
 
+import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -28,7 +29,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,19 +51,21 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
     
     private String fromSearchString = "";
     private String toSearchString = "";
+    private View mainview;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.route_search_fragment, container, false);
-        Button clickButton = v.findViewById(R.id.btn_route_planer_search);
+        this.mainview = inflater.inflate(R.layout.route_search_fragment, container, false);
+
+        Button clickButton = this.mainview.findViewById(R.id.btn_route_planer_search);
         clickButton.setOnClickListener(this);
 
-        fromEditText = v.findViewById(R.id.icon_route_planer_text_from);
-        fromInputLayout = v.findViewById(R.id.icon_route_planer_text_from_layout);
+        fromEditText = this.mainview.findViewById(R.id.icon_route_planer_text_from);
+        fromInputLayout = this.mainview.findViewById(R.id.icon_route_planer_text_from_layout);
 
-        toEditText = v.findViewById(R.id.icon_route_planer_text_to);
-        toInputLayout = v.findViewById(R.id.icon_route_planer_text_to_layout);
+        toEditText = this.mainview.findViewById(R.id.icon_route_planer_text_to);
+        toInputLayout = this.mainview.findViewById(R.id.icon_route_planer_text_to_layout);
 
         fromEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -96,7 +101,7 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
             }
         });
 
-        return v;
+        return this.mainview;
     }
 
     @Override
@@ -108,10 +113,8 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
             this.connectionsViewModel = ViewModelProviders.of(this).get(RouteSearchViewModel.class);
             this.connectionsViewModel.searchConnections(fromSearchString, toSearchString).observe(this, connectionsContainer -> {
                 if (connectionsContainer.connections.size() > 0) {
-                    ConnectionDto connection = connectionsContainer.connections.get(0);
-
-                    Log.i("DEBUG_APP","\n\n" + connection.from.departure.toString() + "\n\n");
-                    Log.i("DEBUG_APP","\n\n" + connection.to.arrival.toString() + "\n\n");
+                    ListView listView = this.mainview.findViewById(R.id.all_connections);
+                    listView.setAdapter(new RouteItemAdapter<ConnectionDto>(this.mainview.getContext(), R.layout.route_item, connectionsContainer.connections));
                 } else {
                     Toast.makeText(this.getContext(), R.string.validation_text_search_no_locations, Toast.LENGTH_LONG).show();
                 }

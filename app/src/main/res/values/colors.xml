@@ -4,5 +4,7 @@
     <color name="colorGradientStart">#00BBDD</color>
     <color name="colorWhite">#F0F0F0</color>
     <color name="colorPrimaryDark">#0000CC</color>
+    <color name="colorZebraA">#99ccff</color>
+    <color name="colorZebraB">#66ccff</color>
     <color name="colorAccent">#D81B60</color>
 </resources>
