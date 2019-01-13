@@ -20,8 +20,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,8 +28,9 @@ import android.widget.Button;
 
 import com.example.lucamele.journey.R;
 import com.example.lucamele.journey.model.FragmentChangeListener;
+import com.example.lucamele.journey.model.ViewModelFragment;
 
-public class EntryScreenFragment extends Fragment implements View.OnClickListener, FragmentChangeListener {
+public class EntryScreenFragment extends Fragment implements View.OnClickListener, FragmentChangeListener, ViewModelFragment {
     public static final String TAG = "EntryScreenViewModel";
 
     @Nullable
@@ -46,9 +45,12 @@ public class EntryScreenFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        System.out.println("onClick");
-        Fragment routeSearchFragment = RouteSearchFragment.getNewInstance();
+        Fragment routeSearchFragment = (Fragment) RouteSearchFragment.getNewInstance();
         this.replaceFragment(routeSearchFragment);
+    }
+
+    public String getFragmentTag() {
+        return TAG;
     }
 
     @Override
@@ -60,8 +62,8 @@ public class EntryScreenFragment extends Fragment implements View.OnClickListene
         ft.commit();
     }
 
-    public static Fragment getNewInstance() {
-        Fragment fragment = new EntryScreenFragment();
-        return (Fragment) fragment;
+    public static ViewModelFragment getNewInstance() {
+        ViewModelFragment fragment = new EntryScreenFragment();
+        return fragment;
     }
 }

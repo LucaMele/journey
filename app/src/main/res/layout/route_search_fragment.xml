@@ -6,16 +6,16 @@
     android:id="@+id/route_search_fragment"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:weightSum="3"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
     android:orientation="vertical" >
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:id="@+id/icon_route_planer"
-        android:layout_weight="0.4"
         tools:ignore="Suspicious0dp">
 
         <ImageView
@@ -41,34 +41,35 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_weight="1"
         tools:ignore="Suspicious0dp">
 
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/icon_route_planer_text_from">
+            android:id="@+id/icon_route_planer_text_from_layout">
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/icon_route_planer_text_from"
                 android:hint="@string/hint_text_from" />
         </android.support.design.widget.TextInputLayout>
 
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/icon_route_planer_text_to"
-            android:layout_below="@id/icon_route_planer_text_from"
+            android:id="@+id/icon_route_planer_text_to_layout"
+            android:layout_below="@id/icon_route_planer_text_from_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
+                android:id="@+id/icon_route_planer_text_to"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_text_to" />
         </android.support.design.widget.TextInputLayout>
@@ -76,14 +77,34 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/icon_route_planer_text_via"
-            android:layout_below="@id/icon_route_planer_text_to">
+            android:id="@+id/icon_route_planer_text_via_layout"
+            android:layout_below="@id/icon_route_planer_text_to_layout">
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/icon_route_planer_text_via"
                 android:hint="@string/hint_text_via" />
         </android.support.design.widget.TextInputLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="1dp"
+        tools:ignore="Suspicious0dp">
+
+        <Button
+            android:id="@+id/btn_route_planer_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:text="@string/search_button_text"
+            android:textColor="@color/colorWhite"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     </RelativeLayout>
 

@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.lucamele.journey.R;
+import com.example.lucamele.journey.model.ViewModelFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        Fragment fragment = null;
+        ViewModelFragment fragment = null;
         switch(item.getItemId()) {
             case R.id.nav_commute:
                 fragment = RouteSearchFragment.getNewInstance();
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = EntryScreenFragment.getNewInstance();
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.fragment_container, (Fragment) fragment, fragment.getFragmentTag()).commit();
         item.setChecked(true);
         setTitle(item.getTitle());
         drawer.closeDrawers();

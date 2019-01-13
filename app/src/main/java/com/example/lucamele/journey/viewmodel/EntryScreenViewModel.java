@@ -1,11 +1,5 @@
 package com.example.lucamele.journey.viewmodel;
 
-import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
+import android.arch.lifecycle.ViewModel;
 
-public class EntryScreenViewModel extends AndroidViewModel {
-
-    public EntryScreenViewModel(Application application) {
-        super(application);
-    }
-}
+public class EntryScreenViewModel extends ViewModel { }
