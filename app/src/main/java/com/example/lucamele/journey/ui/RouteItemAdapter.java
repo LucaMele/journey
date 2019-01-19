@@ -62,8 +62,17 @@ public class RouteItemAdapter<T> extends ArrayAdapter {
         int colorToUse = position % 2 == 0 ? R.color.colorZebraA : R.color.colorZebraB;
         Activity activity = (Activity) mInflater.getContext();
         cardContainer.setBackgroundColor(mInflater.getContext().getResources().getColor(colorToUse, activity.getTheme()));
-        textFrom.setText(String.format(Locale.GERMAN,"%s %s", mInflater.getContext().getResources().getString(R.string.connection_from), item.from.toString()));
-        textTo.setText(String.format(Locale.GERMAN,"%s %s", mInflater.getContext().getResources().getString(R.string.connection_to), item.to.toString()));
+        textFrom.setText(
+            String.format(Locale.GERMAN,"%s %s", mInflater.getContext().getResources().getString(R.string.connection_from) +
+                " " + item.from.station.name + " " +
+                mInflater.getContext().getResources().getString(R.string.platform) + " " +
+                item.from.platform,
+            item.from.toString())
+        );
+        textTo.setText(
+            String.format(Locale.GERMAN,"%s %s", mInflater.getContext().getResources().getString(R.string.connection_to) + " " + item.to.station.name, item.to.toString())
+        );
+        // textToStation.setText(String.format(Locale.GERMAN,"%s %s", mInflater.getContext().getResources().getString(R.string.connection_to), item.to.toString()));
         return view;
     }
 }

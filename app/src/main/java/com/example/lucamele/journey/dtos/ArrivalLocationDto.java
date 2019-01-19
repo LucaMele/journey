@@ -10,12 +10,13 @@ import java.util.Locale;
 public class ArrivalLocationDto extends LocationDto  {
 
     public Date arrival;
+    public ArrivalLocationStationDto station;
 
 
     @NonNull
     @Override
     public String toString() {
-        SimpleDateFormat f = new SimpleDateFormat("EEEE dd.MM.yyyy HH:mm", Locale.GERMAN);
+        SimpleDateFormat f = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMAN);
         return f.format(arrival);
     }
 
