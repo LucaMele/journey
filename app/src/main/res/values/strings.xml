@@ -1,6 +1,8 @@
 <resources>
     <string name="route_search_button_text">Routenplaner</string>
     <string name="home">Journey Home</string>
+    <string name="about_us_devs">Entwickelt von Luca Mele und Armin Mattle</string>
+    <string name="about_us_devs_mails">luca.mele@hsr.ch / armin.mattle@hsr.ch</string>
     <string name="hint_text_from">Von</string>
     <string name="connection_from">Start von</string>
     <string name="connection_to">Ankunft in</string>

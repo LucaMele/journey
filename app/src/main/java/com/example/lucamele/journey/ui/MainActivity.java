@@ -96,6 +96,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_commute:
                 fragment = RouteSearchFragment.getNewInstance();
                 break;
+             case R.id.nav_about_us:
+                fragment = AboutUsFragment.getNewInstance();
+                break;
             default:
                 fragment = EntryScreenFragment.getNewInstance();
         }

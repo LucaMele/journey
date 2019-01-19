@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:weightSum="3"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="top"
+        android:gravity="top"
+        android:layout_weight="0.8"
+        tools:ignore="Suspicious0dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/app_name"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="top"
+        android:gravity="top"
+        android:layout_weight="0.2"
+        tools:ignore="Suspicious0dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="@string/about_us_devs" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="top"
+        android:gravity="top"
+        android:layout_weight="0.2"
+        tools:ignore="Suspicious0dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="@string/about_us_devs_mails" />
+    </RelativeLayout>
+</LinearLayout>
