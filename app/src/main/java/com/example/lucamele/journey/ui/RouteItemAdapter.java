@@ -5,13 +5,11 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.lucamele.journey.R;
@@ -19,7 +17,6 @@ import com.example.lucamele.journey.dtos.ConnectionDto;
 
 import java.util.List;
 import java.util.Locale;
-
 
 public class RouteItemAdapter<T> extends ArrayAdapter {
 
@@ -54,7 +51,6 @@ public class RouteItemAdapter<T> extends ArrayAdapter {
             textTo = view.findViewById(R.id.text_card_arrival);
             cardContainer = view.findViewById(R.id.text_card);
         } catch (ClassCastException e) {
-            Log.e("ArrayAdapter", "You must supply a resource ID for a TextView");
             throw new IllegalStateException(
                     "ArrayAdapter requires the resource ID to be a TextView", e);
         }

@@ -1,22 +1,5 @@
-/*
- * Copyright 2017, The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.lucamele.journey.ui;
 
-import android.app.ProgressDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
@@ -32,7 +15,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.lucamele.journey.R;
@@ -42,6 +24,7 @@ import com.example.lucamele.journey.viewmodel.RouteSearchViewModel;
 
 
 public class RouteSearchFragment extends Fragment implements View.OnClickListener, ViewModelFragment {
+
     public static final String TAG = "RouteSearchViewModel";
 
     private RouteSearchViewModel connectionsViewModel;
@@ -109,7 +92,6 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-
         switch(v.getId()) {
             case R.id.btn_route_planer_switch:
                 this.onClickSwitch(v);
@@ -155,7 +137,6 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
         listView.setAdapter(new ArrayAdapter<Object>(mainview.getContext(), R.layout.route_item_wait, R.id.text_card_loading, loadingItems));
         progressBar.setVisibility(View.VISIBLE);
     }
-
 
     public String getFragmentTag() {
         return TAG;

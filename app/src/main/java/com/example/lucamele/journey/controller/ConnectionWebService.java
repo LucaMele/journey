@@ -2,7 +2,6 @@ package com.example.lucamele.journey.controller;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.util.Log;
 
 import com.example.lucamele.journey.dtos.ConnectionContainerDto;
 import com.example.lucamele.journey.model.ConnectionService;
@@ -43,5 +42,4 @@ public class ConnectionWebService {
 
         return data;
     }
-
 }

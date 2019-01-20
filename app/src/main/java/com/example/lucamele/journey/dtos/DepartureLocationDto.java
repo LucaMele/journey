@@ -1,6 +1,5 @@
 package com.example.lucamele.journey.dtos;
 
-
 import android.support.annotation.NonNull;
 
 import java.text.SimpleDateFormat;
@@ -12,7 +11,6 @@ public class DepartureLocationDto extends LocationDto {
     public Date departure;
     public String platform;
     public DepartureLocationStationDto station;
-
 
     @NonNull
     @Override
