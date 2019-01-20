@@ -33,6 +33,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,8 +61,11 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
                              Bundle savedInstanceState) {
         this.mainview = inflater.inflate(R.layout.route_search_fragment, container, false);
 
-        Button clickButton = this.mainview.findViewById(R.id.btn_route_planer_search);
+        Button clickButton = (Button) this.mainview.findViewById(R.id.btn_route_planer_search);
         clickButton.setOnClickListener(this);
+
+        ImageButton switchButton = this.mainview.findViewById(R.id.btn_route_planer_switch);
+        switchButton.setOnClickListener(this);
 
         fromEditText = this.mainview.findViewById(R.id.icon_route_planer_text_from);
         fromInputLayout = this.mainview.findViewById(R.id.icon_route_planer_text_from_layout);
@@ -109,6 +113,26 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
 
+        switch(v.getId()) {
+            case R.id.btn_route_planer_switch:
+                this.onClickSwitch(v);
+                break;
+            default:
+                this.onClickSearch(v);
+        }
+    }
+
+    private void onClickSwitch(View v) {
+        Editable oldFromText = fromEditText.getText();
+        Editable oldFromTo = toEditText.getText();
+
+        toEditText.setText(oldFromText);
+        fromEditText.setText(oldFromTo);
+
+        this.onClickSearch(v);
+    }
+
+    private void onClickSearch (View v) {
         if (fromSearchString.length() == 0 || toSearchString.length() == 0) {
             Toast.makeText(this.getContext(), R.string.validation_text_search, Toast.LENGTH_LONG).show();
         } else {

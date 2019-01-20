@@ -64,8 +64,7 @@
             android:id="@+id/icon_route_planer_text_to_layout"
             android:layout_below="@id/icon_route_planer_text_from_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
@@ -73,6 +72,15 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_text_to" />
         </android.support.design.widget.TextInputLayout>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/btn_route_planer_switch"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="0dp"
+            android:background="@mipmap/ic_cached" />
 
     </RelativeLayout>
 
