@@ -18,7 +18,9 @@ package com.example.lucamele.journey.ui;
 
 import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -121,7 +123,6 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
             });
         }
     }
-
 
 
     public String getFragmentTag() {

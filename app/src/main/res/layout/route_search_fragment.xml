@@ -74,19 +74,6 @@
                 android:hint="@string/hint_text_to" />
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/icon_route_planer_text_via_layout"
-            android:layout_below="@id/icon_route_planer_text_to_layout">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/icon_route_planer_text_via"
-                android:hint="@string/hint_text_via" />
-        </android.support.design.widget.TextInputLayout>
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -108,17 +95,27 @@
 
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/all_connections"
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="5dp"
-        android:background="@android:color/transparent"
-        android:cacheColorHint="@android:color/transparent"
-        android:divider="#CCCCCC"
-        android:dividerHeight="1dp"
-        android:paddingLeft="2dp" >
-    </ListView>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="1dp"
+        tools:ignore="Suspicious0dp">
+
+        <ListView
+            android:id="@+id/all_connections"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="#CCCCCC"
+            android:dividerHeight="1dp"
+            android:paddingLeft="2dp" >
+        </ListView>
+
+    </RelativeLayout>
 
 </LinearLayout>

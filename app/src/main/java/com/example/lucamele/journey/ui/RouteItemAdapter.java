@@ -2,6 +2,7 @@ package com.example.lucamele.journey.ui;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -60,19 +61,19 @@ public class RouteItemAdapter<T> extends ArrayAdapter {
 
         final ConnectionDto item = (ConnectionDto) getItem(position);
         int colorToUse = position % 2 == 0 ? R.color.colorZebraA : R.color.colorZebraB;
+        Resources res = mInflater.getContext().getResources();
+
+        String busOrTrainTxt = item.from.platform == null ? res.getString(R.string.bus) : res.getString(R.string.platform) + " " + item.from.platform;
         Activity activity = (Activity) mInflater.getContext();
-        cardContainer.setBackgroundColor(mInflater.getContext().getResources().getColor(colorToUse, activity.getTheme()));
+        cardContainer.setBackgroundColor(res.getColor(colorToUse, activity.getTheme()));
         textFrom.setText(
             String.format(Locale.GERMAN,"%s %s", mInflater.getContext().getResources().getString(R.string.connection_from) +
-                " " + item.from.station.name + " " +
-                mInflater.getContext().getResources().getString(R.string.platform) + " " +
-                item.from.platform,
+                " " + item.from.station.name + " " + busOrTrainTxt,
             item.from.toString())
         );
         textTo.setText(
-            String.format(Locale.GERMAN,"%s %s", mInflater.getContext().getResources().getString(R.string.connection_to) + " " + item.to.station.name, item.to.toString())
+            String.format(Locale.GERMAN,"%s %s", res.getString(R.string.connection_to) + " " + item.to.station.name, item.to.toString())
         );
-        // textToStation.setText(String.format(Locale.GERMAN,"%s %s", mInflater.getContext().getResources().getString(R.string.connection_to), item.to.toString()));
         return view;
     }
 }
