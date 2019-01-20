@@ -16,18 +16,14 @@
 
 package com.example.lucamele.journey.ui;
 
-import android.app.Activity;
+import android.app.ProgressDialog;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +31,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.lucamele.journey.R;
@@ -55,6 +52,7 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
     private String fromSearchString = "";
     private String toSearchString = "";
     private View mainview;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,15 +71,16 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
         toEditText = this.mainview.findViewById(R.id.icon_route_planer_text_to);
         toInputLayout = this.mainview.findViewById(R.id.icon_route_planer_text_to_layout);
 
+        progressBar = (ProgressBar) mainview.findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.INVISIBLE);
+
         fromEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
 
             @Override
@@ -93,12 +92,10 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
         toEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
 
             @Override
@@ -134,8 +131,10 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
 
     private void onClickSearch (View v) {
         if (fromSearchString.length() == 0 || toSearchString.length() == 0) {
+            progressBar.setVisibility(View.INVISIBLE);
             Toast.makeText(this.getContext(), R.string.validation_text_search, Toast.LENGTH_LONG).show();
         } else {
+            this.showLoading();
             this.connectionsViewModel = ViewModelProviders.of(this).get(RouteSearchViewModel.class);
             this.connectionsViewModel.searchConnections(fromSearchString, toSearchString).observe(this, connectionsContainer -> {
                 if (connectionsContainer.connections.size() > 0) {
@@ -144,8 +143,17 @@ public class RouteSearchFragment extends Fragment implements View.OnClickListene
                 } else {
                     Toast.makeText(this.getContext(), R.string.validation_text_search_no_locations, Toast.LENGTH_LONG).show();
                 }
+                progressBar.setVisibility(View.INVISIBLE);
             });
         }
+    }
+
+    private void showLoading () {
+        ListView listView = mainview.findViewById(R.id.all_connections);
+        String[] loadingItems = new String[1];
+        loadingItems[0] = this.mainview.getResources().getString(R.string.loading);
+        listView.setAdapter(new ArrayAdapter<Object>(mainview.getContext(), R.layout.route_item_wait, R.id.text_card_loading, loadingItems));
+        progressBar.setVisibility(View.VISIBLE);
     }
 
 
